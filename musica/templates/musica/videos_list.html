@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Videos List</h1>
+
+    {% if videos_list %}
+        {% regroup videos_list by subgenero as subgenero_list %}
+
+        <ul>
+        {% for subgenero in subgenero_list %}
+            <li>{{ subgenero.grouper }}
+            <ul>
+                {% for videos in subgenero.list %}
+                  <li>
+                      <a href="{{ videos.get_absolute_url }}">{{ videos.get_absolute_url }}{{ videos.nombre }}</a> ({{videos.autor}})
+                  </li>
+                {% endfor %}
+            </ul>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay videos en la plataforma</p>
+    {% endif %}
+{% endblock %}
+
+

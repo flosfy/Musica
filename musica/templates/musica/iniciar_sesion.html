@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Ups!!!</h1>
+    <p>Parece que no has iniciado sesión...</p>
+    <p>Para descargar videos debes estar logueado, puedes hacerlo a través del siguiente enlace:</p>
+    <a href="{% url 'login'%}?next={% url 'videos-list' %}" class="btn btn-default">Iniciar sesión</a>
+
+{% endblock %}

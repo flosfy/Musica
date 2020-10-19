@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Mis videos</h1>
+
+    {% if videos_list %}
+    <ul>
+
+      {% for videos in videos_list %}
+        <a href="{% url 'videos-detail' videos.pk %}">{{videos.nombre}}</a> ({{ videos.autor }})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books borrowed.</p>
+    {% endif %}       
+{% endblock %}
