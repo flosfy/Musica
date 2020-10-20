@@ -26,7 +26,6 @@ urlpatterns = [
     path('musica/', include('musica.urls')),
     path('', RedirectView.as_view(url='musica/', permanent=True)),
     path('accounts/', include('django.contrib.auth.urls')),
-    path("register/", v.registro_usuario, name="register"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
